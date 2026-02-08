@@ -1,17 +1,15 @@
-name: demo
+name: inputs demo
 on:
     workflow_dispatch:
         inputs:
-            name: 
+            name:
                 description: "enter your name"
                 required: true
                 default: "sai"
-                type: string
 jobs:
     job1:
         runs-on: ubuntu-latest
         steps:
-            - name: "print the inputs"
-              run: echo 'name: ${{ inputs.name }}'
-
-
+            - name: print Inputs
+              run: | 
+                echo "Name: ${{ inputs.name }}"
