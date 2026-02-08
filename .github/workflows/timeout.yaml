@@ -1,0 +1,11 @@
+name: timoeout 
+on: [push]
+
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        timeout-minutes: 1
+
+        steps:
+            - name: timoeout example
+              run: sleep 120s
