@@ -1,8 +1,34 @@
-name: Hello World 
-on: [push]
+# name: Hello World 
+# on: [push]
+# jobs:
+#     hello: 
+#         runs-on: ubuntu-latest
+#         steps:
+#             - name: print Hello world
+#               run:  echo "Hello World"
+
+name: Inputs
+
+on:
+    workflow_dispatch:
+        inputs:
+            name:
+                description: "enter your name"
+                required: true
+                default: "Devops engineer"
+            env:
+                description: "select environment"
+                required: true
+                type: environment
 jobs:
-    hello: 
+    job1:
         runs-on: ubuntu-latest
         steps:
-            - name: print Hello world
-              run:  echo "Hello World"
+            - name: print Inputs
+              run: |
+                echo "Name: ${{ github.event.inputs.name }}"
+                echo "env": ${{ github.event.inputs.env }}
+
+
+
+
